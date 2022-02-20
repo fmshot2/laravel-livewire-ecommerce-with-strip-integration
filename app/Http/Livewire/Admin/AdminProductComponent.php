@@ -8,6 +8,14 @@ use App\Models\Product;
 class AdminProductComponent extends Component
 {
     use WithPagination;
+
+    public function deleteProduct($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        Session()->flash('message','Product has been deleted successfully');
+    }
+
     public function render()
     {
         $products = Product::paginate(10);
