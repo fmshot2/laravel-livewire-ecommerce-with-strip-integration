@@ -12,7 +12,14 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        All Products
+                        <div class="row">
+                            <div class="col-md-6">
+                                All Products
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{route('admin.addproduct')}}" class="btn btn-success pull-right">Add New Product</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-body">
                     @if (Session::has('message'))
@@ -30,9 +37,9 @@
                                     <th>Date</th>
                                     <th>Action</th>
                                 </tr>
-                            </thead>                            
+                            </thead>
                             <tbody>
-                                @foreach ($products as $product)                                
+                                @foreach ($products as $product)
                                 <tr>
                                     <td>{{$product->id}}</td>
                                     <td><img src="{{asset('assets/images/products')}}/{{$product->image}}" width="60" /></td>
